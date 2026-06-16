@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Móveis PLanejados | Móveis Sob Medida | Marcenaria Itapema</title>
+  <meta name="description" content="Prime Móveis Planejados – mais de 23 anos transformando sonhos em realidade. Móveis sob medida em Itapema, SC. Cozinhas, quartos, salas. Entre em contato: (47) 99973-5557.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --gold: #C9A84C;
+      --gold-light: #e0c06a;
+      --white: #ffffff;
+      --off-white: #f5f3ee;
+      --gray-text: #555;
+      --font-sans: 'DM Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 70px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .header-logo .star {
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    .header-logo span {
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav { display: flex; align-items: center; gap: 2rem; }
+
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 1; }
+
+    .btn-header {
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      border-radius: 30px;
+      padding: 0.5rem 1.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-header:hover { background: var(--gold-light); }
+
+    /* hamburger — mobile only */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px; background: var(--white);
+    }
+
+    /* Mobile nav drawer */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: var(--black);
+      padding: 1.5rem 2rem;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding-top: 70px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://static.wixstatic.com/media/6ca978cfa90e4c08bb0c6964145ea3b0.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.55);
+    }
+
+    /* decorative gold dots */
+    .dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      width: 240px;
+      margin-bottom: 2.5rem;
+    }
+
+    #hero h1 {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    #hero p {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      font-size: 1rem;
+      margin-top: 1rem;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+    }
+
+    .btn-circle {
+      position: relative;
+      z-index: 1;
+      margin-top: 2.5rem;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.9);
+      color: var(--black);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-circle:hover { background: var(--gold-light); transform: scale(1.05); }
+
+    /* ── ABOUT SECTION ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--off-white);
+    }
+
+    .about-col {
+      padding: 5rem 4rem;
+    }
+
+    .about-col + .about-col {
+      border-left: 1px solid #ddd;
+    }
+
+    .about-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-col h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-col p {
+      color: var(--gray-text);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* ── FEATURES / CARDS ── */
+    #features {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--off-white);
+    }
+
+    .feature-card {
+      position: relative;
+      padding: 4rem;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(245,243,238,0.82);
+      z-index: 0;
+    }
+
+    .feature-card .feature-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.25;
+    }
+
+    .feature-card > * { position: relative; z-index: 1; }
+
+    .feature-card h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-card p {
+      color: var(--gray-text);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      max-width: 420px;
+    }
+
+    /* ── GALLERY BANNER ── */
+    .gallery-banner {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 3.5rem 2rem;
+    }
+
+    .gallery-banner h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    /* ── GALLERY GRID ── */
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    /* ── WHO WE ARE ── */
+    #quem-somos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .quem-img {
+      background-image: url('https://static.wixstatic.com/media/nsplsh_dbefcdfa9cd34ce0b24af266359cbb19~mv2.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 500px;
+    }
+
+    .quem-content {
+      padding: 5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .quem-content h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .quem-content h3 {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      line-height: 1.4;
+      margin-bottom: 1.2rem;
+    }
+
+    .quem-content p {
+      color: var(--gray-text);
+      font-size: 0.9rem;
+      line-height: 1.85;
+    }
+
+    /* ── CONTACT / CTA ── */
+    #contato {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    #contato h2 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    #contato p {
+      opacity: 0.75;
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1rem 2.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: scale(1.03); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 4rem 5rem 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .footer-newsletter h3 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin-bottom: 1.8rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .newsletter-form input[type="email"] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      outline: none;
+      width: 100%;
+    }
+    .newsletter-form input[type="email"]::placeholder { color: rgba(255,255,255,0.45); }
+
+    .newsletter-form label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    .newsletter-form input[type="checkbox"] { accent-color: var(--gold); }
+
+    .btn-newsletter {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--white);
+      border-radius: 30px;
+      padding: 0.6rem 1.8rem;
+      font-size: 0.8rem;
+      font-family: var(--font-sans);
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .btn-newsletter:hover { background: var(--white); color: var(--black); }
+
+    .footer-menu h4, .footer-social h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .footer-menu ul a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-menu ul a:hover { color: var(--gold); }
+
+    .footer-social a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.6rem;
+      transition: color 0.2s;
+    }
+    .footer-social a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 2.5rem;
+      text-align: center;
+    }
+
+    .footer-logo img {
+      height: 70px;
+    }
+
+    .footer-address {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      line-height: 1.6;
+    }
+    .footer-address a { color: inherit; text-decoration: none; }
+    .footer-address a:hover { color: var(--gold); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      opacity: 0.4;
+      margin-top: 1rem;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      color: var(--white);
+      font-size: 2.5rem;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #about, #features { grid-template-columns: 1fr; }
+      .about-col + .about-col { border-left: none; border-top: 1px solid #ddd; }
+      #quem-somos { grid-template-columns: 1fr; }
+      .quem-img { min-height: 300px; }
+      .quem-content { padding: 3rem 2rem; }
+      #gallery { grid-template-columns: repeat(2, 1fr); }
+      footer { padding: 3rem 2rem 1.5rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .about-col { padding: 3rem 2rem; }
+      .feature-card { padding: 3rem 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      #gallery { grid-template-columns: 1fr 1fr; }
+      .header-logo span { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="header-logo">
+    <span class="star">✦</span>
+    <span>Prime Móveis Planejados</span>
+  </a>
+
+  <!-- Desktop nav -->
+  <nav>
+    <a href="#quem-somos">Quem Somos</a>
+    <a href="#features">Soluções</a>
+    <a href="#gallery">Projetos</a>
+    <a href="#contato" class="btn-header">Começar</a>
+  </nav>
+
+  <!-- Mobile hamburger -->
+  <button class="hamburger" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile nav drawer -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#quem-somos" onclick="closeMenu()">Quem Somos</a>
+  <a href="#features" onclick="closeMenu()">Soluções</a>
+  <a href="#gallery" onclick="closeMenu()">Projetos</a>
+  <a href="#contato" onclick="closeMenu()">Começar</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- decorative dots -->
+  <div class="dot" style="top:20%;left:13%"></div>
+  <div class="dot" style="top:27%;left:15%" ></div>
+  <div class="dot" style="top:78%;left:16%"></div>
+  <div class="dot" style="top:85%;left:22%"></div>
+  <div class="dot" style="top:47%;left:22%"></div>
+  <div class="dot" style="top:21%;right:13%"></div>
+  <div class="dot" style="top:42%;right:9%"></div>
+  <div class="dot" style="top:74%;right:8%"></div>
+  <div class="dot" style="top:20%;right:83%"></div>
+
+  <img
+    class="hero-logo"
+    src="https://static.wixstatic.com/media/2d03c6_aa1d1ef069804a5ca49bc57cdf599bb9~mv2.png"
+    alt="Prime Móveis Planejados Logo"
+  >
+  <h1>Móveis de Alta Qualidade</h1>
+  <p>Você sonha e nós realizamos</p>
+  <a href="#contato" class="btn-circle">ENTRAR EM<br>CONTATO</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-col">
+    <p class="about-label">Qualidade dos materiais</p>
+    <h2>A essência da Prime</h2>
+    <p>Na Prime Móveis Planejados, a qualidade não é apenas uma palavra, mas um compromisso inabalável com cada cliente. Utilizamos materiais de primeira linha para garantir que seus móveis planejados sejam não apenas bonitos, mas também duráveis e resistentes ao passar do tempo.</p>
+  </div>
+  <div class="about-col">
+    <p class="about-label">Projetos Exclusivos</p>
+    <h2>Sua visão, nossa realização</h2>
+    <p>Aqui cada projeto é único, assim como você. Acreditamos que seus móveis devem ser uma expressão do seu estilo e atender às suas necessidades de forma personalizada.</p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="feature-card">
+    <div class="feature-bg" style="background-image:url('https://static.wixstatic.com/media/2d03c6_ef937f7005534ce5930ccb7ca3d32637~mv2.png')"></div>
+    <h3>Orçamento<br>Personalizado</h3>
+    <p>Nosso atendimento é exclusivo e sob medida para atender às necessidades específicas de cada cliente. Elaboramos orçamentos personalizados, garantindo a melhor solução para o seu projeto.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-bg" style="background-image:url('https://static.wixstatic.com/media/2d03c6_7d9359b0c196489498eb285f1c39b640~mv2.png')"></div>
+    <h3>Valorizamos<br>a estética</h3>
+    <p>Combinamos beleza e funcionalidade, oferecendo uma ampla variedade de materiais, cores e acabamentos para que você possa criar um ambiente único e sofisticado.</p>
+  </div>
+</section>
+
+<!-- GALLERY BANNER -->
+<div class="gallery-banner">
+  <h2>Confira alguns de nossos projetos</h2>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_ef937f7005534ce5930ccb7ca3d32637~mv2.png" alt="Projeto 1 – Cozinha Planejada">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_7d9359b0c196489498eb285f1c39b640~mv2.png" alt="Projeto 2 – Móveis Planejados">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_78fa5b79f8164910868fe4dfea32d308~mv2.png" alt="Projeto 3">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_ae711db1b23d4ad5888d5c8a168b8535~mv2.png" alt="Projeto 4">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_d0629d1aafce4b2597dabfc92d69e7a6~mv2.png" alt="Projeto 5">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_a22200c554e844779b23a7ae9a0037aa~mv2.png" alt="Projeto 6">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_2c131c4b86ef4eecb4f9d66e08ea693c~mv2.png" alt="Projeto 7">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_d44794b3ca4e4a819742788d4182cbb1~mv2.png" alt="Projeto 8">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_33941fca02114a74aa28c980d55d12e1~mv2.png" alt="Projeto 9">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_a0f0d944532b4fd5b6e4a37b14033ce5~mv2.png" alt="Projeto 10">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_2df4ebacb79442e899d5db68d8f2a841~mv2.png" alt="Projeto 11">
+  </div>
+  <div class="gallery-item" onclick="openLightbox(this)">
+    <img src="https://static.wixstatic.com/media/2d03c6_fa1852ed9a3c4b06abf7a6821829b872~mv2.png" alt="Projeto 12">
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos">
+  <div class="quem-img"></div>
+  <div class="quem-content">
+    <h2>Quem Somos</h2>
+    <h3>Mais de 23 anos transformando sonhos em realidade.</h3>
+    <p>
+      Com mais de 1900 clientes satisfeitos, a Prime é referência em móveis planejados. Nossos projetos são exclusivos, criados sob medida para atender as suas necessidades e desejos. Utilizamos materiais de alta qualidade e contamos com uma equipe de profissionais experientes para garantir a perfeita execução de cada detalhe.
+      <br><br>
+      Do seu sonho ao projeto ideal: Nossa equipe te acompanha em todas as etapas, desde a criação do projeto até a instalação. Desfrute de um atendimento personalizado e de um ambiente único, projetado especialmente para você.
+    </p>
+  </div>
+</section>
+
+<!-- CONTATO CTA -->
+<section id="contato">
+  <h2>Do projeto à montagem,<br>cuidamos de tudo</h2>
+  <p>Entre em contato e tire seu projeto do papel.</p>
+  <a href="https://wa.me/5547999735557" target="_blank" rel="noopener" class="btn-gold">Entrar em Contato</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-newsletter">
+      <h3>Mantenha-se atualizado sobre nossas novidades</h3>
+      <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+        <input type="email" placeholder="Email *" required>
+        <label>
+          <input type="checkbox" required>
+          Sim, inscreva-me na sua newsletter *
+        </label>
+        <button type="submit" class="btn-newsletter">Inscrever-me</button>
+      </form>
+    </div>
+
+    <div class="footer-menu">
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#features">Soluções</a></li>
+        <li><a href="#gallery">Projetos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Social</h4>
+      <a href="https://www.instagram.com/primemoveisitapema/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/p/Prime-M%C3%B3veis-Itapema-61563796865399/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-logo">
+      <img src="https://static.wixstatic.com/media/2d03c6_aa1d1ef069804a5ca49bc57cdf599bb9~mv2.png" alt="Prime Móveis Planejados">
+    </div>
+    <div class="footer-address">
+      R. 406 D, 409 – Morretes, Itapema – SC, 88220-000<br>
+      <a href="tel:+5547999735557">(47) 99973-5557</a>
+    </div>
+    <p class="footer-copy">© 2024 Prime Móveis Planejados, desenvolvido por @adrenalize</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  // Mobile menu
+  document.getElementById('menuToggle').addEventListener('click', () => {
+    document.getElementById('mobileNav').classList.toggle('open');
+  });
+  function closeMenu() {
+    document.getElementById('mobileNav').classList.remove('open');
+  }
+
+  // Lightbox
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Newsletter
+  function handleNewsletter(e) {
+    e.preventDefault();
+    alert('Obrigado! Você será notificado das nossas novidades.');
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
