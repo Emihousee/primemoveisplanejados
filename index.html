@@ -8,6 +8,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) — Google Ads AW-11423544553 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11423544553"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-11423544553');
+  </script>
+
+  <!-- Snippet de conversão — Clique WhatsApp -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') { window.location = url; }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-11423544553/-w2-CPaWzMUcEOnplccq',
+      'value': 1.0, 'currency': 'BRL', 'event_callback': callback
+    });
+    return false;
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -733,7 +755,7 @@
 <section id="contato">
   <h2>Do projeto à montagem,<br>cuidamos de tudo</h2>
   <p>Entre em contato e tire seu projeto do papel.</p>
-  <a href="https://wa.me/5547999735557" target="_blank" rel="noopener" class="btn-gold">Entrar em Contato</a>
+  <a href="https://wa.me/5547999735557" target="_blank" rel="noopener" class="btn-gold" onclick="return gtag_report_conversion('https://wa.me/5547999735557')">Entrar em Contato</a>
 </section>
 
 <!-- FOOTER -->
